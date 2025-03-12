@@ -1,0 +1,25 @@
+// 1023px - 1280px | 1281px - 1366px | > 1366px (if browser's default font size is 16px)
+$breakpoints: (
+  'mobile': '576px',
+  'tablet': '768px',
+  'laptop': '920px',
+  'desktop': '992px',
+  'desktop-xl': '1200px',
+  'desktop-lg': '1366px',
+  'desktop-xxl': '1500px',
+  'desktop-xxxl': '1900px',
+);
+
+// Desktop-first
+@mixin breakpoint-min($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// Mobile-first
+@mixin breakpoint-max($size) {
+  @media (max-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}

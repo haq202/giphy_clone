@@ -1,0 +1,11 @@
+@import '../scss/breakpoint';
+
+:host ::ng-deep {
+  app-main-layout {
+    @include breakpoint-min(desktop-xl) {
+      position: relative;
+      margin: 0 auto;
+      width: 1040px;
+    }
+  }
+}
