@@ -1,13 +1,25 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { LoaderService } from '@core/services/loader.service';
+import { LoaderComponent } from './layouts/loader/loader.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'giphy';
+export class AppComponent implements OnInit {
+  public isLoading = false;
+  private readonly cdr = inject(ChangeDetectorRef);
+
+  constructor(public readonly loaderService: LoaderService) {}
+
+  ngOnInit(): void {
+    this.loaderService.loading$.subscribe(res => {
+      this.isLoading = res;
+      this.cdr.detectChanges();
+    });
+  }
 }
