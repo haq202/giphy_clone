@@ -1,1 +1,15 @@
-<p>button works!</p>
+<p-button
+  [severity]="severity()"
+  [disabled]="disabled()"
+  [label]="label()"
+  [icon]="icon()"
+  (onClick)="onClick($event)"
+  [type]="type()"
+  [rounded]="rounded()"
+  [outlined]="outlined()"
+  [link]="link()"
+  [text]="text()"
+  [styleClass]="styleClass()"
+  [loading]="loading()"
+  [style.height]="height()"
+  [style.width]="width()"></p-button>

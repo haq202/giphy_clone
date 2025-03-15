@@ -1,14 +1,19 @@
 /* Primeng */
 @import './scss/primeng.scss';
+@import 'primeicons/primeicons.css';
 
 /* Prime Flex */
 @import './scss/primeflex.scss';
 
+@import './scss/breakpoint';
+@import './scss/variables';
+
 body {
-  background: var(--giphy-black);
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  color: $giphy-white;
+  background-color: $giphy-black;
 }
 
 button {
