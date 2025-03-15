@@ -22,7 +22,7 @@ export class ButtonComponent {
   severity = input<ButtonSeverityType>('primary');
   disabled = input<boolean>(false);
   type = input<ButtonType>('button');
-  buttonClick = output<MouseEvent>();
+  buttonClick = output<void>();
   rounded = input<boolean>(false);
   outlined = input<boolean>(false);
   link = input<boolean>(false);
@@ -32,7 +32,7 @@ export class ButtonComponent {
   height = input<string>('unset');
   width = input<string>('unset');
 
-  onClick(event: MouseEvent) {
-    this.buttonClick.emit(event);
+  onClick(): void {
+    this.buttonClick.emit();
   }
 }

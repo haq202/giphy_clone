@@ -1,6 +1,10 @@
 <div class="container">
   <div class="container--nav">
-    <div class="container--nav__logo">
+    <div
+      class="container--nav__logo"
+      (click)="navigateTo('/')"
+      (keydown.enter)="navigateTo('/')"
+      tabindex="0">
       <svg
         height="38"
         width="170"
@@ -41,17 +45,20 @@
       class="upload-btn"
       [label]="'Upload'"
       [type]="'button'"
-      [height]="'36px'"></app-button>
+      [height]="'36px'"
+      (buttonClick)="navigateTo('/upload')"></app-button>
     <app-button
       class="create-btn"
       [label]="'Create'"
       [type]="'button'"
-      [height]="'36px'"></app-button>
+      [height]="'36px'"
+      (buttonClick)="navigateTo('/create')"></app-button>
     <app-button
       class="login-btn"
       [label]="'Log in'"
       [type]="'button'"
       [icon]="'pi pi-user'"
-      [height]="'36px'"></app-button>
+      [height]="'36px'"
+      (buttonClick)="navigateTo('/login')"></app-button>
   </div>
 </div>

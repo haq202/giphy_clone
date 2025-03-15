@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ButtonComponent } from '../../components/common/button/button.component';
 import { INavbarItem } from '@core/models/layout.model';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -20,4 +21,10 @@ export class HeaderComponent {
     { label: 'Artists', href: '/artists' },
     { icon: 'pi pi-ellipsis-v', dropdown: [] },
   ];
+
+  private readonly router = inject(Router);
+
+  navigateTo(url: string): void {
+    this.router.navigate([url]);
+  }
 }
