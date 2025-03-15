@@ -44,6 +44,9 @@ importers:
       primeflex:
         specifier: ^3.3.1
         version: 3.3.1
+      primeicons:
+        specifier: ^7.0.0
+        version: 7.0.0
       primeng:
         specifier: ^17.18.15
         version: 17.18.15(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(rxjs@7.8.2))(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(@angular/forms@18.2.13(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(rxjs@7.8.2))(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(@angular/platform-browser@18.2.13(@angular/animations@18.2.13(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10)))(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(rxjs@7.8.2))(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10)))(rxjs@7.8.2))(rxjs@7.8.2)(zone.js@0.14.10)
@@ -4297,6 +4300,9 @@ packages:
 
   primeflex@3.3.1:
     resolution: {integrity: sha512-zaOq3YvcOYytbAmKv3zYc+0VNS9Wg5d37dfxZnveKBFPr7vEIwfV5ydrpiouTft8MVW6qNjfkaQphHSnvgQbpQ==}
+
+  primeicons@7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
   primeng@17.18.15:
     resolution: {integrity: sha512-66iKLPBxuZguebSylKbAst5V3Qz+2dbzT+oCHQnCbv4Gu4JH6WqbBJWr283HacQB1mUNGvyxgcHVVPhQbnEXvA==}
@@ -10100,6 +10106,8 @@ snapshots:
       react-is: 18.3.1
 
   primeflex@3.3.1: {}
+
+  primeicons@7.0.0: {}
 
   primeng@17.18.15(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(rxjs@7.8.2))(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(@angular/forms@18.2.13(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(rxjs@7.8.2))(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(@angular/platform-browser@18.2.13(@angular/animations@18.2.13(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10)))(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10))(rxjs@7.8.2))(@angular/core@18.2.13(rxjs@7.8.2)(zone.js@0.14.10)))(rxjs@7.8.2))(rxjs@7.8.2)(zone.js@0.14.10):
     dependencies:

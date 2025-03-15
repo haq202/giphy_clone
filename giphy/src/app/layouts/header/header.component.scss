@@ -1,0 +1,111 @@
+@import '../../../scss/breakpoint';
+@import '../../../scss/variables';
+
+.container {
+  @include breakpoint-min(desktop-xl) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  position: relative;
+  padding: 12px 0px 1px 6px;
+  background: $giphy-black;
+  z-index: 1000;
+
+  &--nav {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0%;
+
+    &__logo {
+      cursor: pointer;
+      @include breakpoint-min(desktop-xl) {
+        width: unset;
+        height: 38px;
+      }
+    }
+
+    &__list {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, $gradient-colors) 0% 50% / 200% 50%;
+      display: flex;
+      flex: 1 1 0%;
+      justify-content: space-around;
+      transform: translateZ(0px);
+      position: relative;
+
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .item::before {
+        content: '';
+        position: absolute;
+        background-color: $giphy-black;
+        opacity: 1;
+        inset: 0px -1px 4px;
+        transition: opacity 0.35s;
+      }
+
+      .item:hover::before {
+        opacity: 0;
+      }
+
+      .item:hover {
+        background-color: transparent;
+        transition: background-color 0.25s;
+      }
+
+      .item {
+        cursor: pointer;
+        height: 36px;
+        border-right: 4px solid $giphy-black;
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        text-transform: capitalize;
+        justify-content: center;
+
+        .item-detail {
+          width: 100%;
+          text-align: center;
+          font-size: $text-sm;
+          font-weight: 600;
+          color: $giphy-white;
+          height: 100%;
+          position: relative;
+          -webkit-font-smoothing: antialiased;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        a {
+          text-decoration: none;
+          color: $giphy-white;
+        }
+      }
+    }
+  }
+}
+
+:host::ng-deep {
+  &.upload-btn {
+    background: $giphy-indigo;
+    padding: 0px 0.8em;
+    font-weight: bold;
+    font-size: $text-sm;
+    border-radius: 2px;
+  }
+
+  &.create-btn {
+    background: $giphy-purple;
+    padding: 0px 0.8em;
+    font-weight: bold;
+    font-size: $text-sm;
+    border-radius: 2px;
+  }
+}
