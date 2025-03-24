@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { ButtonComponent } from '../../components/common/button/button.component';
 import { INavbarItem } from '@core/models/layout.model';
 import { CommonModule } from '@angular/common';
@@ -13,6 +18,8 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+  placeholder = signal<string>('@username to search channels');
+
   navItems: INavbarItem[] = [
     { label: 'Reactions', href: '/reactions' },
     { label: 'Entertainment', href: '/entertainment' },
@@ -23,6 +30,18 @@ export class HeaderComponent {
   ];
 
   private readonly router = inject(Router);
+
+  constructor() {
+    let toggle = true;
+    setInterval(() => {
+      this.placeholder.set(
+        toggle
+          ? 'Search all the GIFs and Stickers'
+          : '@username to search channels'
+      );
+      toggle = !toggle;
+    }, 3000);
+  }
 
   navigateTo(url: string): void {
     this.router.navigate([url]);
