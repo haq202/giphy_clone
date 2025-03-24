@@ -29,8 +29,6 @@ export class ButtonComponent {
   text = input<boolean>(false);
   styleClass = input<string>('');
   loading = input<boolean>(false);
-  height = input<string>('unset');
-  width = input<string>('unset');
 
   onClick(): void {
     this.buttonClick.emit();

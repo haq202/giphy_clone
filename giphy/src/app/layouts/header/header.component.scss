@@ -19,6 +19,7 @@
 
     &__logo {
       cursor: pointer;
+      margin-right: 10px;
       @include breakpoint-min(desktop-xl) {
         width: unset;
         height: 38px;
@@ -90,22 +91,178 @@
       }
     }
   }
+
+  &--search {
+    background-color: $giphy-black;
+    width: 100%;
+    z-index: 999;
+    position: sticky;
+    top: 69px;
+
+    @include breakpoint-min(tablet) {
+      top: 119px;
+    }
+
+    &__cover {
+      width: 100%;
+      @include breakpoint-min(tablet) {
+        transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        margin-left: auto;
+      }
+
+      .search-container {
+        @include breakpoint-min(tablet) {
+          padding: 10px 0px 0px;
+        }
+
+        .input-form {
+          display: flex;
+          align-items: center;
+          border-radius: 4px;
+          height: 68px;
+          background: $giphy-white;
+
+          input {
+            font-size: $text-xxl;
+            padding-left: 14px;
+
+            ::placeholder {
+              font-size: $text-xxl;
+            }
+          }
+
+          .input-box {
+            background: inherit;
+            box-sizing: border-box;
+            border: 0px;
+            appearance: none;
+            font-weight: normal;
+            outline: 0px;
+            font-size: 15px;
+            padding: 0px 10px;
+            border-radius: 0px;
+            text-overflow: ellipsis;
+            color: $giphy-black;
+            min-width: 150px;
+            flex: 1 1 0%;
+          }
+        }
+
+        .icon-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          cursor: pointer;
+          height: 68px;
+          width: 68px;
+
+          .icon-cover::before {
+            animation: 2s linear 0s infinite normal none running icon_animate;
+            background-image: linear-gradient(
+              45deg,
+              rgb(230, 70, 182) 0%,
+              rgb(255, 102, 102) 50%,
+              rgb(230, 70, 182) 100%
+            );
+            background-size: 400%;
+            background-position: 0% 100%;
+            content: '';
+            position: absolute;
+            inset: 0px;
+            width: 400%;
+          }
+
+          .icon-cover {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(
+              45deg,
+              rgb(230, 70, 182) 0%,
+              rgb(255, 102, 102) 100%
+            );
+            border-radius: 0px 4px 4px 0px;
+            overflow: hidden;
+          }
+
+          .search-icon {
+            z-index: 1;
+            display: flex;
+            width: 50%;
+            height: 50%;
+          }
+        }
+      }
+    }
+  }
 }
 
 :host::ng-deep {
-  &.upload-btn {
-    background: $giphy-indigo;
+  &.btn {
     padding: 0px 0.8em;
     font-weight: bold;
     font-size: $text-sm;
     border-radius: 2px;
+
+    &.upload-btn {
+      background: $giphy-indigo;
+
+      &:hover {
+        background: $giphy-lightblue;
+      }
+    }
+
+    &.create-btn {
+      background: $giphy-purple;
+
+      &:hover {
+        background: $giphy-pink;
+      }
+    }
+
+    .p-button {
+      height: 36px;
+    }
   }
 
-  &.create-btn {
-    background: $giphy-purple;
-    padding: 0px 0.8em;
-    font-weight: bold;
-    font-size: $text-sm;
-    border-radius: 2px;
+  &.login-btn {
+    background: $giphy-dark-charcoal;
+    padding: 0;
+
+    &:hover {
+      background: $giphy-light-charcoal;
+    }
+
+    .p-button {
+      height: 36px;
+
+      .p-button-icon-left {
+        background: $giphy-light-charcoal;
+        height: 36px;
+        width: 36px;
+        align-content: center;
+      }
+
+      .p-button-label {
+        width: 128px;
+      }
+    }
+  }
+}
+
+@keyframes icon_animate {
+  0% {
+    opacity: 0;
+    transform: translateX(-400%);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(0px);
   }
 }
