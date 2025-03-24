@@ -29,7 +29,7 @@
       </svg>
     </div>
     <ul class="container--nav__list">
-      @for (item of navItems; track $index) {
+      @for (item of navItems(); track $index) {
         <li class="item">
           @if (item?.label) {
             <a class="item-detail" [href]="item?.href">{{ item?.label }}</a>

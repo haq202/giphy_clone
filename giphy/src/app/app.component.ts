@@ -1,4 +1,10 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  inject,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LoaderService } from '@core/services/loader.service';
 import { LoaderComponent } from './layouts/loader/loader.component';
@@ -18,14 +24,14 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  public isLoading = false;
+  public isLoading = signal<boolean>(false);
   private readonly cdr = inject(ChangeDetectorRef);
 
   constructor(public readonly loaderService: LoaderService) {}
 
   ngOnInit(): void {
     this.loaderService.loading$.subscribe(res => {
-      this.isLoading = res;
+      this.isLoading.set(res);
       this.cdr.detectChanges();
     });
   }
