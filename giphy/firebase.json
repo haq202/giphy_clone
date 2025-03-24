@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "dist/giphy/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
