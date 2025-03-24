@@ -29,6 +29,7 @@ export class ButtonComponent {
   text = input<boolean>(false);
   styleClass = input<string>('');
   loading = input<boolean>(false);
+  hidden = input<boolean>(false);
 
   onClick(): void {
     this.buttonClick.emit();

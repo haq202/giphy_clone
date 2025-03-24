@@ -20,14 +20,14 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   placeholder = signal<string>('@username to search channels');
 
-  navItems: INavbarItem[] = [
+  navItems = signal<INavbarItem[]>([
     { label: 'Reactions', href: '/reactions' },
     { label: 'Entertainment', href: '/entertainment' },
     { label: 'Sports', href: '/sports' },
     { label: 'Stickers', href: '/stickers' },
     { label: 'Artists', href: '/artists' },
     { icon: 'pi pi-ellipsis-v', dropdown: [] },
-  ];
+  ]);
 
   private readonly router = inject(Router);
 
