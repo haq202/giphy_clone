@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { collection, Firestore, getDocs } from '@angular/fire/firestore';
+import {
+  addDoc,
+  collection,
+  Firestore,
+  getDocs,
+} from '@angular/fire/firestore';
 import { IGif } from '@core/models/common.model';
+import { NavbarType } from '@core/models/layout.model';
 import { from, map, Observable } from 'rxjs';
 
 @Injectable({
@@ -11,17 +17,28 @@ export class GifsService {
 
   constructor(private fs: Firestore) {}
 
-  searchGifs(keyword = '', limit = 12): Observable<any> {
+  searchGifs(
+    data?: { title: string; type: NavbarType | null },
+    limit = 12
+  ): Observable<any> {
     const gifsCollection = collection(this.fs, this.dbPath);
     return from(getDocs(gifsCollection)).pipe(
       map(snapshot =>
         snapshot.docs
           .map(doc => ({ id: doc.id, ...(doc.data() as IGif) }))
-          .filter((gif: IGif) =>
-            gif.title.toLowerCase().includes(keyword.toLowerCase())
+          .filter(
+            (gif: IGif) =>
+              data &&
+              gif.title.toLowerCase().includes(data.title.toLowerCase()) &&
+              (data.type ? gif.type === data.type : true)
           )
           .slice(0, limit)
       )
     );
+  }
+
+  createGif(data: IGif): Observable<any> {
+    const gifsCollection = collection(this.fs, this.dbPath);
+    return from(addDoc(gifsCollection, data).then(() => data));
   }
 }

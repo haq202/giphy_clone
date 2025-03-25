@@ -1,0 +1,12 @@
+@import '../../../scss/breakpoint';
+@import '../../../scss/variables';
+
+.dialog-body {
+  padding: 1.5rem !important;
+  margin: 0 !important;
+  border: 1px solid gray;
+  background: green;
+  @include breakpoint-min(desktop-xl) {
+    width: 1200px;
+  }
+}

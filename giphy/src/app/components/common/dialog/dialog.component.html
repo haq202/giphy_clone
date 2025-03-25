@@ -1,1 +1,17 @@
-<p>dialog works!</p>
+<div class="dialog-wrapper">
+  @if (hasHeader()) {
+    <header class="dialog-header">
+      <ng-content select="[dialog-header]"></ng-content>
+    </header>
+  }
+
+  <div class="dialog-body scrollbar">
+    <ng-content select="[dialog-content]"></ng-content>
+  </div>
+
+  @if (hasFooter()) {
+    <footer class="dialog-footer">
+      <ng-content select="[dialog-footer]"></ng-content>
+    </footer>
+  }
+</div>
