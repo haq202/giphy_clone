@@ -1,1 +1,37 @@
-<p>upload-giphy works!</p>
+<app-dialog [hasFooter]="true" [hasHeader]="true">
+  <form [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
+    <ng-template #headerTempl dialog-header></ng-template>
+    <ng-template #bodyTempl dialog-content></ng-template>
+    <ng-template #footerTempl dialog-footer></ng-template>
+  </form>
+</app-dialog>
+
+<ng-template #headerTempl>
+  <div class="flex align-items-center justify-content-between dialog-header">
+    <h4>{{ data.title }}</h4>
+    <span
+      (click)="handleCloseDialog()"
+      (keydown.enter)="handleCloseDialog()"
+      (keydown.space)="handleCloseDialog()"
+      tabindex="0"
+      role="button"
+      aria-label="Close dialog">
+      <i class="pi pi-times" style="font-size: 1.5rem"></i>
+    </span>
+  </div>
+</ng-template>
+
+<ng-template #footerTempl>
+  <div class="flex justify-content-end align-items-center w-full gap-3">
+    <app-button
+      severity="secondary"
+      (buttonClick)="handleCloseDialog()"
+      [label]="'Close'"></app-button>
+
+    <app-button type="submit" severity="primary" [label]="'Save'"></app-button>
+  </div>
+</ng-template>
+
+<div class="dialog-body" bodyTempl>
+  <h1>Hello</h1>
+</div>

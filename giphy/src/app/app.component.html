@@ -1,8 +1,48 @@
-@if (isLoading()) {
+<!-- @if (isLoading()) {
   <app-loader></app-loader>
-}
+} -->
 
 <app-main-layout>
-  <app-header></app-header>
-  <router-outlet></router-outlet>
+  <app-header (handleSearch)="getGifs($event)"></app-header>
+  <!-- <router-outlet></router-outlet> -->
+  <div class="flex flex-wrap">
+    @for (item of gifs(); track $index) {
+      <div
+        class="col-3 cursor-pointer"
+        [tabindex]="$index"
+        (click)="onPreview(item)"
+        (keydown.enter)="onPreview(item)"
+        (keydown.space)="onPreview(item)">
+        <picture
+          ><source type="image/webp" [srcset]="item.url" />
+          <img
+            height="100%"
+            width="100%"
+            style="
+              background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4AQMAAACSSKldAAAABlBMVEUhIiIWFhYoSqvJAAAAGElEQVQY02MAAv7///8PWxqIPwDZw5UGABtgwz2xhFKxAAAAAElFTkSuQmCC')
+                0px 0px;
+            "
+            [src]="item.url"
+            [alt]="item.title"
+        /></picture>
+      </div>
+    }
+  </div>
+
+  <div *ngIf="selectedGif()" class="modal">
+    <div class="modal-content">
+      <span
+        class="close"
+        tabindex="0"
+        (click)="closePreview()"
+        (keydown.enter)="closePreview()"
+        (keydown.space)="closePreview()"
+        role="button"
+        aria-label="Close preview">
+        &times;
+      </span>
+      <img [src]="selectedGif()?.url" [alt]="selectedGif()?.title" />
+      <p>{{ selectedGif()?.title }}</p>
+    </div>
+  </div>
 </app-main-layout>

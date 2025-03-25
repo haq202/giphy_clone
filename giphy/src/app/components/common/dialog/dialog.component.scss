@@ -1,0 +1,47 @@
+@import '../../../../scss/variables';
+@import '../../../../scss/breakpoint';
+
+.dialog {
+  .p-dialog-content {
+    &:last-of-type {
+      border-top-left-radius: $radius-8;
+      border-top-right-radius: $radius-8;
+    }
+  }
+  &-wrapper {
+    position: relative;
+    max-height: calc(100vh - 32px);
+    overflow: hidden;
+    max-width: calc(100vw - 32px);
+    border-radius: 12px;
+
+    @include breakpoint-max(moble) {
+      max-width: unset;
+    }
+  }
+
+  &-header {
+    position: sticky;
+    top: 0;
+    background-color: $giphy-white;
+    left: 0;
+    right: 0;
+  }
+
+  &-body {
+    padding: 0 16px;
+    max-height: calc(100vh - 170px);
+    overflow: auto;
+  }
+
+  &-footer {
+    position: sticky;
+    bottom: 0;
+    background-color: $giphy-white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    // box-shadow: $box-shadow;
+  }
+}

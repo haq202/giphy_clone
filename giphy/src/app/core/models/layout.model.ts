@@ -1,9 +1,10 @@
 export interface INavbarItem {
-  label?: string;
-  href?: string;
+  label: string;
+  value: NavbarType;
   icon?: string;
-  dropdown?: INavbarItem[];
 }
+
+export type NavbarType = 'POCHACCO' | 'TONTON' | 'YEON' | 'BEE' | 'OTHERS';
 
 export type ButtonSeverityType =
   | 'success'

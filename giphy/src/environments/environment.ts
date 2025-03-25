@@ -13,4 +13,7 @@ export const environment = {
       rootNamespace: '',
     },
   },
+  firebaseConfig: {
+
+  },
 };
